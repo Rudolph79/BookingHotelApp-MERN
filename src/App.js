@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import Login from "./auth/Login";
+import Home from "./booking/Home";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Register from "./auth/Register";
+import Navbar from "./components/Navbar";
 
-function App() {
+/* const TopNav = () => {
+  <div className="nav bg-light d-flex justify-content-between">
+    <Link className="nav-link" to='/'>
+      Accueil
+    </Link>
+    <Link className="nav-link" to='/connexion'>
+      Se connecter
+    </Link>
+    <Link className="nav-link" to='/inscription'>
+      S'inscrire
+    </Link>
+  </div>
+};*/
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/connexion" element={<Login />} />
+        <Route path='/inscription' element={<Register />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
